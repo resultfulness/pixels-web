@@ -284,5 +284,12 @@
     "tags": [
       { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
     ]
+  },
+  {
+    "date": "2022-12-31",
+    "type": "Mood",
+    "scores": [4],
+    "notes": "",
+    "tags": []
   }
 ]
