@@ -3,7 +3,7 @@
   export let size: 18 | 24 | 36 | 48 = 24;
   export let variant: "outlined" | "round" | "sharp" | "two-tone" | "" = "";
   export let dark: boolean = false;
-  export let color: string = "";
+  export let color: string = "inherit";
 </script>
 
 <span
