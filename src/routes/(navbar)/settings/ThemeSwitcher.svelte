@@ -36,7 +36,6 @@
   }
 </script>
 
-<h2>Theme</h2>
 <div>
   <button on:click={() => darkTheme(false)} class:active={darkMode === false}>
     <MdIcon icon={darkMode === false ? "done" : "light_mode"} />

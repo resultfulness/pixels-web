@@ -1,8 +1,9 @@
 <script lang="ts">
   export let checked: boolean;
+  export let topRight: boolean = false;
 </script>
 
-<label class="switch">
+<label class="switch" class:top-right={topRight}>
   <input type="checkbox" bind:checked />
   <span class="slider round" />
 </label>
@@ -18,6 +19,13 @@
     display: inline-block;
     width: var(--_switch-width);
     height: var(--_switch-height);
+  }
+
+  .switch.top-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 1rem 1.5rem;
   }
 
   .switch input {

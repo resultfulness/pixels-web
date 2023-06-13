@@ -8,9 +8,8 @@
 </script>
 
 <div>
-  <div class="title">
-    <h2>Daily reminder</h2>
-    <Switch bind:checked />
+  <div class="switch">
+    <Switch bind:checked topRight />
   </div>
 
   <div class="buttons">
@@ -30,23 +29,18 @@
 </div>
 
 <style>
-  .title {
-    display: flex;
-    justify-content: space-between;
-  }
-
   p {
     text-align: center;
     font-weight: 400;
     font-size: 1.1rem;
     color: var(--clr-alert);
+    margin-top: 1rem;
   }
 
   .buttons {
     display: flex;
     justify-content: center;
     gap: 0.75rem;
-    margin-block: 1rem;
   }
 
   button {

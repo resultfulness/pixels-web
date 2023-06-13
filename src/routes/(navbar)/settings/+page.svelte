@@ -2,18 +2,18 @@
   import Card from "$lib/components/Card.svelte";
   import Reminder from "./Reminder.svelte";
   import ThemeSwitcher from "./ThemeSwitcher.svelte";
-
-  import "./settingsPageStyles.css";
 </script>
 
 <main>
-  <Card>
+  <Card title="Theme">
     <ThemeSwitcher />
   </Card>
   <hr />
-  <Card>
+  <Card title="Daily reminder">
     <Reminder />
   </Card>
+  <hr />
+  <Card />
 </main>
 
 <style>
