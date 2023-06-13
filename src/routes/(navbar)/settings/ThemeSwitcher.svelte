@@ -72,6 +72,7 @@
     padding: 1rem 1.5rem;
     font-size: 1.1rem;
     display: flex;
+    align-items: center;
     gap: 0.5em;
     border: none;
     margin: 0;
