@@ -5,14 +5,14 @@
     onClick: () => void;
     activeCondition: boolean;
     label: string;
-    iconName: string;
+    iconName?: string;
   }[];
 </script>
 
 <div>
   {#each buttons as { onClick, activeCondition, label, iconName }}
     <button on:click={onClick} class:active={activeCondition}>
-      <MdIcon icon={activeCondition ? "done" : iconName} />
+      <MdIcon icon={activeCondition ? "done" : iconName ? iconName : ""} />
       {label}
     </button>
   {/each}
