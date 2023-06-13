@@ -6,9 +6,9 @@ export type PixelsEntry = {
   tags: Tags[];
 };
 
-export type EntryType = "Mood";
+export type EntryType = string;
 
-export type Score = [1] | [2] | [3] | [4] | [5];
+export type Score = number[];
 
 export type Tags = {
   type: string;

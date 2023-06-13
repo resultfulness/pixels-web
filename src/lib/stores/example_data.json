@@ -1,0 +1,288 @@
+[
+  {
+    "date": "2023-4-1",
+    "type": "Mood",
+    "scores": [4],
+    "notes": "",
+    "tags": [{ "type": "Emotions", "entries": ["tiredness"] }]
+  },
+  {
+    "date": "2023-6-1",
+    "type": "Mood",
+    "scores": [5],
+    "notes": "Qscbj",
+    "tags": [
+      { "type": "Activities", "entries": ["Exercise 💪"] },
+      { "type": "Emotions", "entries": ["anxiety", "emptiness", "optimism"] }
+    ]
+  },
+  {
+    "date": "2023-6-2",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "date": "2023-6-3",
+    "type": "Mood",
+    "scores": [4],
+    "notes": "Qscbj",
+    "tags": [
+      { "type": "Activities", "entries": ["Exercise 💪"] },
+      { "type": "Emotions", "entries": ["anxiety", "emptiness", "optimism"] }
+    ]
+  },
+  {
+    "date": "2023-6-4",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-5",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-6",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-7",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-8",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-9",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-10",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-11",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-12",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-13",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-14",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-15",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-16",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-17",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-18",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-19",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-20",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-21",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-22",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-23",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-24",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-25",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-26",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-27",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-28",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-29",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-6-30",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  },
+  {
+    "date": "2023-7-1",
+    "type": "Mood",
+    "scores": [2],
+    "notes": "",
+    "tags": [
+      { "type": "Emotions", "entries": ["remorse", "stress", "tiredness"] }
+    ]
+  }
+]
