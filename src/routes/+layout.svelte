@@ -1,8 +1,14 @@
 <script lang="ts">
   import "../app.css";
-  import ThemeSwitcher from "./ThemeSwitcher.svelte";
 </script>
 
-<slot />
+<div id="app">
+  <slot />
+</div>
 
-<ThemeSwitcher />
+<style>
+  #app {
+    margin-inline: auto;
+    max-width: min(100% - 0rem, 1049px);
+  }
+</style>
