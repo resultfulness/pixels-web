@@ -4,8 +4,13 @@
 
   const MONTH_DAY_COUNTS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-  function getWeekdayOffset(year: number, month: number): number {
-    const weekday = new Date(`${year}-${month + 1}`).getDay();
+  function getWeekdayOffset(
+    year: number,
+    month: number,
+    mondayFirst: boolean
+  ): number {
+    let weekday = new Date(`${year}-${month + 1}`).getDay();
+    if (!mondayFirst) weekday += 1;
     if (weekday === 0) return 6;
     else return weekday - 1;
   }
@@ -48,8 +53,15 @@
   }
 
   $: dates = getMapOfAllMonthsBetween(startYear, startMonth, endYear, endMonth);
+  let isMondayFirst = false;
 
   onMount(() => {
+    isMondayFirst =
+      !localStorage.getItem("fdotw") ||
+      localStorage.getItem("fdotw") === "sunday"
+        ? false
+        : true;
+
     for (const entry of dataSorted) {
       const date = entry.date;
 
@@ -77,7 +89,7 @@
           })}
         </h2>
         <div class="monthdays">
-          {#each { length: getWeekdayOffset(year, month) } as _}
+          {#each { length: getWeekdayOffset(year, month, isMondayFirst) } as _}
             <div />
           {/each}
           {#each { length: MONTH_DAY_COUNTS[month] } as _, day}

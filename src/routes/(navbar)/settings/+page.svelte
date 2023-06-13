@@ -1,5 +1,6 @@
 <script>
   import Card from "$lib/components/Card.svelte";
+  import FirstDayOfTheWeekSwitcher from "./FirstDayOfTheWeekSwitcher.svelte";
   import Reminder from "./Reminder.svelte";
   import ThemeSwitcher from "./ThemeSwitcher.svelte";
 </script>
@@ -13,7 +14,9 @@
     <Reminder />
   </Card>
   <hr />
-  <Card />
+  <Card title="First day of the week">
+    <FirstDayOfTheWeekSwitcher />
+  </Card>
 </main>
 
 <style>
