@@ -26,8 +26,6 @@
   ];
 
   $: active = $page.url.pathname;
-
-  $: console.log(active);
 </script>
 
 <nav>
