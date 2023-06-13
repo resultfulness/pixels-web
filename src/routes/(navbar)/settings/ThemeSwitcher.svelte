@@ -1,5 +1,6 @@
 <script lang="ts">
   import { browser } from "$app/environment";
+  import ButtonSplit from "$lib/components/ButtonSplit.svelte";
   import MdIcon from "$lib/components/MdIcon.svelte";
 
   let darkMode: boolean | null = true;
@@ -36,23 +37,28 @@
   }
 </script>
 
-<div>
-  <button on:click={() => darkTheme(false)} class:active={darkMode === false}>
-    <MdIcon icon={darkMode === false ? "done" : "light_mode"} />
-    Light
-  </button>
-  <button on:click={() => darkTheme(true)} class:active={darkMode}>
-    <MdIcon icon={darkMode ? "done" : "dark_mode"} />
-    Dark
-  </button>
-  <button
-    on:click={() => revertToSystemTheme()}
-    class:active={darkMode === null}
-  >
-    <MdIcon icon={darkMode === null ? "done" : "phone_iphone"} />
-    System
-  </button>
-</div>
+<ButtonSplit
+  buttons={[
+    {
+      onClick: () => darkTheme(false),
+      activeCondition: darkMode === false,
+      label: "Light",
+      iconName: "light_mode",
+    },
+    {
+      onClick: () => darkTheme(true),
+      activeCondition: darkMode === true,
+      label: "Dark",
+      iconName: "dark_mode",
+    },
+    {
+      onClick: revertToSystemTheme,
+      activeCondition: darkMode === null,
+      label: "System",
+      iconName: "phone_iphone",
+    },
+  ]}
+/>
 
 <style>
   div {
@@ -75,6 +81,7 @@
     gap: 0.5em;
     border: none;
     margin: 0;
+    cursor: pointer;
   }
 
   button:nth-of-type(2) {
