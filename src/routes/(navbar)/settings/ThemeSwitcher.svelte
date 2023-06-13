@@ -8,8 +8,6 @@
   function darkTheme(dark: boolean) {
     darkMode = dark;
 
-    console.log(darkMode);
-
     localStorage.setItem("theme", darkMode ? "dark" : "light");
 
     darkMode
