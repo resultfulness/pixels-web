@@ -9,8 +9,8 @@
 <span
   class:dark
   class:light={!dark}
-  class="material-icons{variant && `-${variant}px`}"
-  style:font-size={size}
+  class="material-icons{variant && `-${variant}`}"
+  style:font-size={size + "px"}
   style:color
 >
   {icon}
