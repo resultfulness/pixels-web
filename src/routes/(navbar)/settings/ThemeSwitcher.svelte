@@ -56,11 +56,6 @@
 </div>
 
 <style>
-  h2 {
-    margin-bottom: 1rem;
-    font-weight: 500;
-  }
-
   div {
     border-radius: 100vw;
     width: max-content;
