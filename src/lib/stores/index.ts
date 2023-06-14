@@ -1,8 +1,6 @@
-import { writable } from "svelte/store";
-import type { PixelsEntry } from "../types";
+import type { PixelsEntry } from "$lib/types";
+import localStore from "./localStore";
 
-import exampleData from "./example_data.json";
+const pixels = localStore<PixelsEntry[]>("pixels", []);
 
-const data = writable(exampleData as PixelsEntry[]);
-
-export { data as pixelsData };
+export { pixels };

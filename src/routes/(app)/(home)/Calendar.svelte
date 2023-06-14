@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { pixelsData } from "$lib/stores";
+  import { pixels } from "$lib/stores";
+  import type { PixelsEntry } from "$lib/types";
   import { onMount } from "svelte";
 
   const MONTH_DAY_COUNTS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -15,19 +16,10 @@
     else return weekday - 1;
   }
 
-  $: dataSorted = $pixelsData.sort(
-    (a, b) => +new Date(a.date) - +new Date(b.date)
-  );
-
   function getYearAndMonthFromDate(date: string): number[] {
     const [year, month, _] = date.split("-");
     return [+year, +month - 1];
   }
-
-  $: [startYear, startMonth] = getYearAndMonthFromDate(dataSorted[0].date);
-  $: [endYear, endMonth] = getYearAndMonthFromDate(
-    dataSorted[dataSorted.length - 1].date
-  );
 
   function getMapOfAllMonthsBetween(
     startYear: number,
@@ -52,7 +44,20 @@
     return years;
   }
 
-  $: dates = getMapOfAllMonthsBetween(startYear, startMonth, endYear, endMonth);
+  let dates: Map<number, number[]> = new Map();
+  let dataSorted: PixelsEntry[] = [];
+
+  if ($pixels.length > 0) {
+    dataSorted = $pixels.sort(
+      (a: PixelsEntry, b: PixelsEntry) => +new Date(a.date) - +new Date(b.date)
+    );
+    const [startYear, startMonth] = getYearAndMonthFromDate(dataSorted[0].date);
+    const [endYear, endMonth] = getYearAndMonthFromDate(
+      dataSorted[dataSorted.length - 1].date
+    );
+    dates = getMapOfAllMonthsBetween(startYear, startMonth, endYear, endMonth);
+  }
+
   let isMondayFirst = false;
 
   onMount(() => {
