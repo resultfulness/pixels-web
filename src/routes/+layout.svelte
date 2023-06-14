@@ -8,7 +8,8 @@
 
 <style>
   #app {
+    padding-block: 2rem 12rem;
     margin-inline: auto;
-    max-width: min(100% - 0rem, 1049px);
+    max-width: min(100% - 4rem, 1049px);
   }
 </style>
