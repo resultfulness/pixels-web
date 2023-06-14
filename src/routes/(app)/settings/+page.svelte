@@ -2,6 +2,7 @@
   import Card from "$lib/components/Card.svelte";
   import MdIcon from "$lib/components/MdIcon.svelte";
   import { get } from "svelte/store";
+  import { toast } from "$lib/stores/toaster";
   import FirstDayOfTheWeekSwitcher from "./FirstDayOfTheWeekSwitcher.svelte";
   import Reminder from "./Reminder.svelte";
   import ThemeSwitcher from "./ThemeSwitcher.svelte";
@@ -16,7 +17,9 @@
   $: if (files) {
     readFile(files[0])
       .then(importData)
-      .catch((e) => console.error());
+      .catch((e) => {
+        toast.showWithMessage(`${e.toString()}`);
+      });
   }
 
   function areArraysEqual(arr1: any[], arr2: any[]): boolean {
@@ -27,7 +30,13 @@
   }
 
   async function importData(contents: string) {
-    const data = JSON.parse(contents);
+    let data: any;
+    try {
+      data = JSON.parse(contents);
+    } catch (_) {
+      throw new Error("couldn't parse data as JSON");
+    }
+
     if (data.constructor !== Array) {
       throw new Error("not an array");
     }
@@ -42,6 +51,7 @@
 
     const { pixels } = await import("$lib/stores");
     pixels.set(data);
+    toast.showWithMessage("Imported successfully");
   }
 
   async function exportData(event: MouseEvent) {
