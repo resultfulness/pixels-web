@@ -1,21 +1,56 @@
 <script lang="ts">
   import Card from "$lib/components/Card.svelte";
   import MdIcon from "$lib/components/MdIcon.svelte";
+  import { get } from "svelte/store";
   import FirstDayOfTheWeekSwitcher from "./FirstDayOfTheWeekSwitcher.svelte";
   import Reminder from "./Reminder.svelte";
   import ThemeSwitcher from "./ThemeSwitcher.svelte";
   import FileSaver from "file-saver";
-  // import { localData } from "$lib/stores";
 
-  function importData(event: MouseEvent) {
-    throw new Error("Function not implemented.");
+  let files: FileList;
+
+  function readFile(file: File): Promise<string> {
+    return file.text();
   }
-  function exportData(event: MouseEvent) {
-    // let filename = `PIXELS-BACKUP-${new Date().toISOString()}.json`;
-    // let fileToSave = new Blob([JSON.stringify($localData, null, 4)], {
-    //   type: "application/json",
-    // });
-    // FileSaver.saveAs(fileToSave, filename);
+
+  $: if (files) {
+    readFile(files[0])
+      .then(importData)
+      .catch((e) => console.error());
+  }
+
+  function areArraysEqual(arr1: any[], arr2: any[]): boolean {
+    return (
+      arr1.length === arr2.length &&
+      arr1.sort().every((value, index) => value === arr2.sort()[index])
+    );
+  }
+
+  async function importData(contents: string) {
+    const data = JSON.parse(contents);
+    if (data.constructor !== Array) {
+      throw new Error("not an array");
+    }
+
+    const requiredKeys = ["date", "type", "scores", "notes", "tags"];
+    for (const entry of data) {
+      const entryKeys = Object.keys(entry);
+      if (!areArraysEqual(requiredKeys, entryKeys)) {
+        throw new Error("invalid data format");
+      }
+    }
+
+    const { pixels } = await import("$lib/stores");
+    pixels.set(data);
+  }
+
+  async function exportData(event: MouseEvent) {
+    const { pixels } = await import("$lib/stores");
+    let filename = `PIXELS-BACKUP-${new Date().toISOString()}.json`;
+    let fileToSave = new Blob([JSON.stringify(get(pixels), null, 4)], {
+      type: "application/json",
+    });
+    FileSaver.saveAs(fileToSave, filename);
   }
 </script>
 
@@ -31,10 +66,18 @@
   <FirstDayOfTheWeekSwitcher />
 </Card>
 <hr />
-<button class="data-porter" on:click={importData}>
+<label class="data-porter">
   <MdIcon icon="file_download" />
   Import Pixels Data
-</button>
+  <input
+    type="file"
+    id="import"
+    name="import"
+    accept="application/json"
+    style="display: none;"
+    bind:files
+  />
+</label>
 <button class="data-porter" on:click={exportData}>
   <MdIcon icon="file_upload" />
   Export Pixels Data
