@@ -24,6 +24,7 @@
       month: "long",
       year: "numeric",
     })}
+    ({data.date.toLocaleString("default", { weekday: "long" })})
   </h1>
 </header>
 <main>
@@ -72,8 +73,10 @@
 
   main {
     display: grid;
-    place-items: center;
-    min-height: 100vh;
+    min-height: calc(100vh - 3rem - 11.5rem);
+    place-content: center;
+    padding-inline: 2rem;
+    gap: 1rem;
   }
 
   p {
