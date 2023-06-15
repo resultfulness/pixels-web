@@ -1,24 +1,17 @@
 <script lang="ts">
   import Card from "$lib/components/Card.svelte";
-  import type { PixelsEntry } from "$lib/types";
+  import { SCORE_SYMBOLS, type PixelsEntry } from "$lib/types";
+  import TagBadge from "./TagBadge.svelte";
 
   export let entry: PixelsEntry;
-
-  const scoreToSymbol: Record<number, string> = {
-    5: "😀",
-    4: "🙂",
-    3: "😐",
-    2: "🙁",
-    1: "😵",
-  };
 </script>
 
-<div class="score">{scoreToSymbol[entry.scores[0]]}</div>
+<div class="score">{SCORE_SYMBOLS[entry.scores[0]]}</div>
 {#each entry.tags as tag}
   <Card title={tag.type} biggerTitle>
     <div class="tag-entries">
       {#each tag.entries as tagEntry}
-        <span>{tagEntry}</span>
+        <TagBadge>{tagEntry}</TagBadge>
       {/each}
     </div>
   </Card>
@@ -44,15 +37,5 @@
   .tag-entries,
   .notes {
     margin-top: 0.75rem;
-  }
-
-  span {
-    border-radius: 0.5rem;
-    border: 1px solid var(--clr-secondary-inactive);
-    background-color: var(--clr-bg);
-    font-weight: 500;
-    padding: 0.25rem 1.25rem;
-    font-size: 1.15rem;
-    color: var(--clr-text);
   }
 </style>
