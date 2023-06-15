@@ -1,6 +1,7 @@
 <script lang="ts">
   import MdIcon from "$lib/components/MdIcon.svelte";
   import type { PageData } from "./$types";
+  import EntryHeader from "./EntryHeader.svelte";
   import EntryView from "./EntryView.svelte";
 
   export let data: PageData;
@@ -14,19 +15,7 @@
   }
 </script>
 
-<header>
-  <a href="/">
-    <MdIcon icon="arrow_back" size={30} />
-  </a>
-  <h1>
-    {data.date.toLocaleDateString("default", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    })}
-    ({data.date.toLocaleString("default", { weekday: "long" })})
-  </h1>
-</header>
+<EntryHeader date={data.date} />
 <main>
   {#if entry}
     <EntryView {entry} />
@@ -49,28 +38,6 @@
 </div>
 
 <style>
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    margin: 1rem;
-    gap: 2rem;
-  }
-
-  h1 {
-    font-size: 1.75rem;
-    font-weight: 400;
-  }
-
-  a {
-    display: grid;
-    color: inherit;
-    text-decoration: none;
-  }
-
   main {
     display: grid;
     min-height: calc(100vh - 3rem - 11.5rem);
@@ -98,14 +65,17 @@
   .bottom-bar a {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
     border-radius: 100vw;
     background-color: var(--clr-card-bg);
     width: max-content;
-    padding: 0.75rem 1.75rem;
+    padding: 0.75rem 1.5rem;
+    padding-right: 2rem;
     color: var(--clr-secondary-active-bg);
     font-weight: 500;
     font-size: 1.1rem;
     grid-row: 2;
+    text-decoration: none;
   }
 
   button {
