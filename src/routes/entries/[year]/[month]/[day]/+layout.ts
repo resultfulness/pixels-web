@@ -1,9 +1,9 @@
 import { get } from "svelte/store";
-import type { PageLoad } from "./$types";
+import type { LayoutLoad } from "./$types";
 
 export const ssr = false;
 
-export const load: PageLoad = async ({ params }) => {
+export const load: LayoutLoad = async ({ params }) => {
   const { pixels } = await import("$lib/stores");
 
   const dateString = `${+params.year}-${+params.month}-${+params.day}`;

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
   import Card from "$lib/components/Card.svelte";
   import type { PixelsEntry } from "$lib/types";
 
@@ -16,7 +15,7 @@
 
 <div class="score">{scoreToSymbol[entry.scores[0]]}</div>
 {#each entry.tags as tag}
-  <Card title={tag.type}>
+  <Card title={tag.type} biggerTitle>
     <div class="tag-entries">
       {#each tag.entries as tagEntry}
         <span>{tagEntry}</span>
@@ -25,8 +24,8 @@
   </Card>
 {/each}
 {#if entry.notes.length !== 0}
-  <Card title="Notes">
-    {entry.notes}
+  <Card title="Notes" biggerTitle>
+    <div class="notes">{entry.notes}</div>
   </Card>
 {/if}
 
@@ -40,6 +39,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+  }
+
+  .tag-entries,
+  .notes {
+    margin-top: 0.75rem;
   }
 
   span {

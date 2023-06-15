@@ -1,22 +1,32 @@
 <script lang="ts">
+  import type { LayoutData } from "./$types";
   import MdIcon from "$lib/components/MdIcon.svelte";
+  import { page } from "$app/stores";
 
-  export let date: Date;
+  export let data: LayoutData;
 </script>
 
 <header>
-  <a href="/">
+  <a
+    href={$page.url.pathname.endsWith("/edit")
+      ? $page.url.pathname.replace("/edit", "")
+      : "/"}
+  >
     <MdIcon icon="arrow_back" size={30} />
   </a>
   <h1>
-    {date.toLocaleDateString("default", {
+    {data.date.toLocaleDateString("default", {
       day: "numeric",
       month: "long",
       year: "numeric",
     })}
-    ({date.toLocaleString("default", { weekday: "long" })})
+    ({data.date.toLocaleString("default", { weekday: "long" })})
   </h1>
 </header>
+
+<main>
+  <slot />
+</main>
 
 <style>
   header {
@@ -39,5 +49,13 @@
     display: grid;
     color: inherit;
     text-decoration: none;
+  }
+  main {
+    display: grid;
+    min-height: calc(100vh - 3rem - 11.5rem);
+    place-content: center;
+    justify-content: stretch;
+    padding-inline: 2rem;
+    gap: 1rem;
   }
 </style>

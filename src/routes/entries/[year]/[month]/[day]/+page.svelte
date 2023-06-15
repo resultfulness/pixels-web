@@ -1,7 +1,6 @@
 <script lang="ts">
   import MdIcon from "$lib/components/MdIcon.svelte";
   import type { PageData } from "./$types";
-  import EntryHeader from "./EntryHeader.svelte";
   import EntryView from "./EntryView.svelte";
 
   export let data: PageData;
@@ -15,14 +14,11 @@
   }
 </script>
 
-<EntryHeader date={data.date} />
-<main>
-  {#if entry}
-    <EntryView {entry} />
-  {:else}
-    <p>No Pixel</p>
-  {/if}
-</main>
+{#if entry}
+  <EntryView {entry} />
+{:else}
+  <p>No Pixel</p>
+{/if}
 <div class="bottom-bar">
   <a href={constructUrlFromDate(data.previousDate)}>
     <MdIcon icon="chevron_left" size={30} />
@@ -32,19 +28,12 @@
     <MdIcon icon="chevron_right" size={30} />
     Next day
   </a>
-  <button>
+  <a href={constructUrlFromDate(data.date) + "/edit"} class="fab">
     <MdIcon icon={entry ? "edit" : "add"} size={30} />
-  </button>
+  </a>
 </div>
 
 <style>
-  main {
-    display: grid;
-    min-height: calc(100vh - 3rem - 11.5rem);
-    place-content: center;
-    padding-inline: 2rem;
-    gap: 1rem;
-  }
 
   p {
     font-size: 1.1rem;
@@ -78,7 +67,7 @@
     text-decoration: none;
   }
 
-  button {
+  .bottom-bar .fab {
     background-color: var(--clr-primary);
     color: var(--clr-text-active);
     border: 0;

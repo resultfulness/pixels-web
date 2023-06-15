@@ -1,0 +1,22 @@
+[
+  {
+    "type": "Activities",
+    "entries": ["Taking photos 📸", "Exercise 💪", "Studying 📚"]
+  },
+  {
+    "type": "Supplements",
+    "entries": ["Creatine", "B12"]
+  },
+  {
+    "type": "Symptoms",
+    "entries": ["Headache", "Nausea"]
+  },
+  {
+    "type": "Meds",
+    "entries": ["Antidepressants", "Antibiotics"]
+  },
+  {
+    "type": "Cycle",
+    "entries": ["Ovulation", "PMS", "Spotting", "Light", "Heavy", "Cramps"]
+  }
+]
