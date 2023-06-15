@@ -17,7 +17,7 @@
 {#if entry}
   <EntryView {entry} />
 {:else}
-  <p>No Pixel</p>
+  <p style="text-align:center;">No Pixel</p>
 {/if}
 <div class="bottom-bar">
   <a href={constructUrlFromDate(data.previousDate)}>
@@ -34,7 +34,6 @@
 </div>
 
 <style>
-
   p {
     font-size: 1.1rem;
   }
