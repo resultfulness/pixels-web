@@ -14,3 +14,11 @@ export type Tags = {
   type: string;
   entries: string[];
 };
+
+export const SCORE_SYMBOLS: Record<number, string> = {
+  5: "😀",
+  4: "🙂",
+  3: "😐",
+  2: "🙁",
+  1: "😵",
+};
