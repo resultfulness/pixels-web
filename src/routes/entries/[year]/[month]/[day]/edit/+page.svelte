@@ -76,7 +76,7 @@
   </Card>
   {#each $tagsCategories as category}
     <Card title={category.type} biggerTitle>
-      <button>
+      <button type="button">
         <MdIcon icon="add" size={30} />
         Add tag
       </button>

@@ -7,7 +7,7 @@
 <span class="badge">
   <slot />
   {#if onRemove !== null}
-    <button on:click={onRemove}>
+    <button on:click={onRemove} type="button">
       <MdIcon icon="close" size={18} />
     </button>
   {/if}
