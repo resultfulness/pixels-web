@@ -38,6 +38,7 @@
     align-items: center;
     margin: 1rem;
     gap: 2rem;
+    z-index: 999;
   }
 
   h1 {
