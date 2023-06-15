@@ -1,19 +1,78 @@
 <script lang="ts">
+  import { goto, invalidate, invalidateAll } from "$app/navigation";
+  import { page } from "$app/stores";
   import Card from "$lib/components/Card.svelte";
   import MdIcon from "$lib/components/MdIcon.svelte";
-  import { tagsCategories } from "$lib/stores";
+  import { tagsCategories, pixels } from "$lib/stores";
+  import { SCORE_SYMBOLS } from "$lib/types";
+  import TagBadge from "../TagBadge.svelte";
   import type { PageData } from "./$types";
 
   export let data: PageData;
+
+  let tags = data.entry?.tags || [];
+
+  function handleRemove(type: string, entry: string) {
+    if (tags) {
+      const newEntries = tags
+        .find((t) => t.type === type)!
+        .entries.filter((e) => e !== entry);
+
+      tags = [
+        ...tags.filter((t) => t.type !== type),
+        { type, entries: newEntries },
+      ];
+    }
+  }
+
+  let scores = data.entry?.scores[0] || 0;
+  let notes = data.entry?.notes || "";
+
+  function pixelsDateFormat(date: Date): string {
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+  }
+
+  function onSubmit(e: SubmitEvent) {
+    const newEntry = {
+      date: pixelsDateFormat(data.date),
+      type: "Mood",
+      scores: [+scores],
+      notes,
+      tags,
+    };
+
+    if (data.entry) {
+      pixels.update((val) => [
+        ...val.filter((e) => e.date !== data.entry!.date),
+        newEntry,
+      ]);
+    } else {
+      pixels.update((val) => [...val, newEntry]);
+    }
+
+    invalidateAll().then(() => goto($page.url.pathname.replace("/edit", "")));
+  }
 </script>
 
-<form>
+<form on:submit|preventDefault={onSubmit}>
   <Card>
-    <input type="radio" name="" id="" />
-    <input type="radio" name="" id="" />
-    <input type="radio" name="" id="" />
-    <input type="radio" name="" id="" />
-    <input type="radio" name="" id="" />
+    <div class="scores">
+      {#each [1, 2, 3, 4, 5] as i}
+        <div class="score" class:checked={+scores === i}>
+          <label>
+            <input
+              type="radio"
+              name="score"
+              id="score1"
+              value={i}
+              bind:group={scores}
+              required
+            />
+            <span>{SCORE_SYMBOLS[i]}</span>
+          </label>
+        </div>
+      {/each}
+    </div>
   </Card>
   {#each $tagsCategories as category}
     <Card title={category.type} biggerTitle>
@@ -21,6 +80,15 @@
         <MdIcon icon="add" size={30} />
         Add tag
       </button>
+      <div class="tag-entries">
+        {#if tags?.find((t) => t.type === category.type)}
+          {#each tags.find((t) => t.type === category.type).entries as tagEntry}
+            <TagBadge onRemove={() => handleRemove(category.type, tagEntry)}>
+              {tagEntry}
+            </TagBadge>
+          {/each}
+        {/if}
+      </div>
     </Card>
   {/each}
   <a href="/tags-categories">
@@ -28,8 +96,9 @@
     Edit tags & categories
   </a>
   <Card title="Notes" biggerTitle>
-    <input type="text" name="" id="" />
+    <input type="text" name="notes" id="notes" bind:value={notes} />
   </Card>
+
   <button type="submit" class="fab">
     <MdIcon icon="save" size={30} />
   </button>
@@ -39,6 +108,65 @@
   form {
     display: grid;
     gap: 1rem;
+  }
+
+  .scores {
+    display: grid;
+    justify-content: center;
+    gap: 1rem;
+    grid-template-columns: repeat(5, 4rem);
+  }
+
+  .score {
+    position: relative;
+    width: 4rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+  .score.checked {
+    outline: 4px solid pink;
+  }
+
+  label {
+    position: absolute;
+    inset: 0;
+  }
+
+  label span {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    font-size: 3rem;
+  }
+
+  input[type="radio"] {
+    opacity: 0;
+  }
+
+  .tag-entries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  input#notes {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: 0;
+    margin-top: 0.75rem;
+    background-color: var(--clr-secondary-inactive-bg);
+    color: var(--clr-text-active);
+    border-bottom: 2px solid var(--clr-secondary-inactive);
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  input#notes:focus {
+    border-color: var(--clr-secondary-active-bg);
+    outline: none;
   }
 
   button.fab {
