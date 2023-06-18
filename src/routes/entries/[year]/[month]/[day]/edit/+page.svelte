@@ -175,12 +175,12 @@
     bottom: 0;
     display: grid;
     place-items: center;
-    cursor: pointer;
     margin: 1.5rem;
     border: 0;
     border-radius: 1.25rem;
     padding: 1.25rem;
     aspect-ratio: 1;
+    cursor: pointer;
     background-color: var(--clr-primary);
     color: var(--clr-text-active);
   }
