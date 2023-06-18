@@ -90,16 +90,16 @@
       {/each}
     </div>
   </Card>
-  {#each $tagsCategories as category}
-    <Card title={category.type} biggerTitle>
+  {#each $tagsCategories as { type }}
+    <Card title={type} biggerTitle>
       <button type="button">
         <MdIcon icon="add" size={30} />
         Add tag
       </button>
       <div class="tag-entries">
-        {#if tags?.find((t) => t.type === category.type)}
-          {#each tags.find((t) => t.type === category.type).entries as tagEntry}
-            <TagBadge onRemove={() => handleRemove(category.type, tagEntry)}>
+        {#if tags?.some((t) => t.type === type)}
+          {#each tags.find((t) => t.type === type).entries as tagEntry}
+            <TagBadge onRemove={() => handleRemove(type, tagEntry)}>
               {tagEntry}
             </TagBadge>
           {/each}
