@@ -1,4 +1,5 @@
 <script lang="ts">
+  import MdIcon from "$lib/components/MdIcon.svelte";
   import { pixels } from "$lib/stores";
   import type { PixelsEntry } from "$lib/types";
   import { onMount } from "svelte";
@@ -80,6 +81,9 @@
       const dayOfEntry = monthdays[dateMonthDay - 1];
 
       dayOfEntry.classList.add(`mood-level-${entry.scores[0]}`, `cup`);
+      if (entry.notes.length !== 0) {
+        dayOfEntry.classList.add("has-notes");
+      }
     }
   });
 </script>
@@ -100,6 +104,9 @@
           {#each { length: MONTH_DAY_COUNTS[month] } as _, day}
             <a href={`/entries/${year}/${month + 1}/${day + 1}`} class="day">
               <span>{day + 1}</span>
+              <span class="notes-icon">
+                <MdIcon icon="description" />
+              </span>
             </a>
           {/each}
         </div>
@@ -161,6 +168,16 @@
     background-color: var(--clr-bg);
     text-align: center;
     font-size: clamp(9px, 2.5vw, 15px);
+  }
+
+  .day > .notes-icon {
+    display: none;
+  }
+
+  .day.has-notes .notes-icon {
+    top: 0;
+    display: block;
+    background-color: transparent;
   }
 
   .day.mood-level-1 {
