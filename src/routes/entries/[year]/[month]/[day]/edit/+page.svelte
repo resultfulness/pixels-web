@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { goto, invalidate, invalidateAll } from "$app/navigation";
+  import { goto } from "$app/navigation";
   import { page } from "$app/stores";
   import Card from "$lib/components/Card.svelte";
   import MdIcon from "$lib/components/MdIcon.svelte";
-  import { tagsCategories, pixels } from "$lib/stores";
+  import { pixels, tagsCategories } from "$lib/stores";
   import { SCORE_SYMBOLS } from "$lib/types";
   import TagBadge from "../TagBadge.svelte";
+  import DeleteModal from "./DeleteModal.svelte";
   import type { PageData } from "./$types";
 
   export let data: PageData;
@@ -50,7 +51,22 @@
       pixels.update((val) => [...val, newEntry]);
     }
 
-    invalidateAll().then(() => goto($page.url.pathname.replace("/edit", "")));
+    goto($page.url.pathname.replace("/edit", ""), {
+      replaceState: true,
+      invalidateAll: true,
+    });
+  }
+
+  let showDeleteConfirmation: boolean = false;
+
+  function handleDelete(
+    event: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }
+  ) {
+    pixels.update((val) => val.filter((e) => e.date !== data.entry!.date));
+    goto($page.url.pathname.replace("/edit", ""), {
+      replaceState: true,
+      invalidateAll: true,
+    });
   }
 </script>
 
@@ -103,6 +119,14 @@
     <MdIcon icon="save" size={30} />
   </button>
 </form>
+{#if data.entry}
+  <button class="delete" on:click={() => (showDeleteConfirmation = true)}>
+    <MdIcon icon="delete_forever" size={30} />
+  </button>
+{/if}
+{#if showDeleteConfirmation}
+  <DeleteModal bind:showDeleteConfirmation {handleDelete} />
+{/if}
 
 <style>
   form {
@@ -186,7 +210,7 @@
   }
 
   a,
-  button:not(.fab) {
+  button[type="button"] {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -202,11 +226,23 @@
     text-decoration: none;
   }
 
-  button:not(.fab) {
+  button[type="button"] {
     position: absolute;
     top: 0;
     right: 0;
     margin: 0.75rem;
     cursor: pointer;
+  }
+
+  button.delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    margin: 1rem;
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--clr-alert);
   }
 </style>
