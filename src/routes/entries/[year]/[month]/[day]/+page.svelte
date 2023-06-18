@@ -40,43 +40,43 @@
 
   .bottom-bar {
     position: fixed;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
     display: grid;
     grid-template-rows: 1fr auto;
     grid-template-columns: auto auto 1fr;
-    padding: 1.5rem;
     gap: 0.75rem;
+    padding: 1.5rem;
   }
 
   .bottom-bar a {
+    grid-row: 2;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     border-radius: 100vw;
     background-color: var(--clr-card-bg);
-    width: max-content;
     padding: 0.75rem 1.5rem;
     padding-right: 2rem;
+    width: max-content;
     color: var(--clr-secondary-active-bg);
-    font-weight: 500;
     font-size: 1.1rem;
-    grid-row: 2;
+    font-weight: 500;
     text-decoration: none;
   }
 
   .bottom-bar .fab {
-    background-color: var(--clr-primary);
-    color: var(--clr-text-active);
-    border: 0;
-    border-radius: 1.25rem;
-    aspect-ratio: 1;
-    padding: 1.25rem;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
     grid-row: 1;
     grid-column: -1;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    aspect-ratio: 1;
+    cursor: pointer;
+    background-color: var(--clr-primary);
+    color: var(--clr-text-active);
   }
 </style>

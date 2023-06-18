@@ -32,13 +32,13 @@
   header {
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
+    left: 0;
+    z-index: 999;
     display: flex;
     align-items: center;
-    margin: 1rem;
     gap: 2rem;
-    z-index: 999;
+    margin: 1rem;
   }
 
   h1 {
@@ -53,10 +53,10 @@
   }
   main {
     display: grid;
-    min-height: calc(100vh - 3rem - 11.5rem);
     place-content: center;
     justify-content: stretch;
-    padding-inline: 2rem;
     gap: 1rem;
+    padding-inline: 2rem;
+    min-height: calc(100vh - 3rem - 11.5rem);
   }
 </style>

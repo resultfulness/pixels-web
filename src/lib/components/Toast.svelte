@@ -27,15 +27,15 @@
 
 <style>
   div {
-    background-color: var(--clr-text);
-    color: var(--clr-bg);
-    width: 100%;
-    padding: 1rem 2rem;
     position: fixed;
     bottom: 0;
     left: 0;
     display: grid;
     grid-template-rows: 0rem;
+    padding: 1rem 2rem;
+    width: 100%;
+    background-color: var(--clr-text);
+    color: var(--clr-bg);
   }
 
   .visible {
@@ -43,8 +43,8 @@
   }
 
   p {
+    overflow: hidden;
     max-width: 1049px;
     font-size: 1.1rem;
-    overflow: hidden;
   }
 </style>

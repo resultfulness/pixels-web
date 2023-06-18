@@ -20,25 +20,25 @@
 
 <style>
   div {
-    border-radius: 100vw;
+    display: flex;
+    overflow: hidden;
     width: max-content;
     margin-inline: auto;
     border: 1px solid var(--clr-secondary-inactive);
-    display: flex;
-    overflow: hidden;
+    border-radius: 100vw;
   }
 
   button {
-    background-color: inherit;
-    color: var(--clr-text-inactive);
-    font-weight: 600;
-    padding: 1rem 1.5rem;
-    font-size: 1.1rem;
     display: flex;
     align-items: center;
     gap: 0.5em;
-    border: none;
     margin: 0;
+    border: none;
+    padding: 1rem 1.5rem;
+    background-color: inherit;
+    color: var(--clr-text-inactive);
+    font-weight: 600;
+    font-size: 1.1rem;
     cursor: pointer;
   }
 

@@ -95,24 +95,24 @@
 
 <style>
   hr {
+    filter: grayscale(0.5) opacity(0.6);
     margin-block: 1.5rem;
     border-color: var(--clr-separator);
-    filter: grayscale(0.5) opacity(0.6);
   }
 
   .data-porter {
-    width: 100%;
-    border-radius: 100vw;
-    border: 0;
-    background-color: var(--clr-secondary);
-    padding: 0.75rem;
-    margin-bottom: 0.75rem;
-    font-weight: 700;
-    color: var(--clr-text-active);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    border: 0;
+    border-radius: 100vw;
+    padding: 0.75rem;
+    width: 100%;
     cursor: pointer;
+    background-color: var(--clr-secondary);
+    color: var(--clr-text-active);
+    font-weight: 700;
   }
 </style>

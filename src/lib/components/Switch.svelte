@@ -23,8 +23,8 @@
 
   .switch.top-right {
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
     margin: 1rem 1.5rem;
   }
 
@@ -36,12 +36,12 @@
 
   .slider {
     position: absolute;
-    cursor: pointer;
     inset: 0;
-    border-radius: 100vw;
-    border: var(--_switch-border-width) solid var(--clr-secondary-inactive);
-    background-color: var(--clr-secondary-inactive-bg);
     transition: 0.2s;
+    border: var(--_switch-border-width) solid var(--clr-secondary-inactive);
+    border-radius: 100vw;
+    background-color: var(--clr-secondary-inactive-bg);
+    cursor: pointer;
   }
 
   .slider::before {
@@ -51,16 +51,17 @@
             var(--_switch-border-width) * 2
         ) / 2
     );
+
     content: "";
     position: absolute;
-    width: var(--_slider-width);
-    aspect-ratio: 1;
-    left: var(--_slider-offset);
     bottom: var(--_slider-offset);
-    border-radius: 50%;
-    background-color: var(--clr-secondary-inactive);
+    left: var(--_slider-offset);
     scale: 0.8;
     transition: 0.2s;
+    width: var(--_slider-width);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--clr-secondary-inactive);
   }
 
   input:checked + .slider {
@@ -69,8 +70,8 @@
   }
 
   input:checked + .slider::before {
-    background-color: var(--clr-secondary-active);
-    scale: 1.3;
     transform: translateX(18px);
+    scale: 1.3;
+    background-color: var(--clr-secondary-active);
   }
 </style>

@@ -110,20 +110,20 @@
 
 <style>
   h2 {
-    text-align: center;
-    font-weight: 400;
     font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
   }
 
   .monthdays {
-    margin-block: 1rem 3rem;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 0.25rem;
+    margin-block: 1rem 3rem;
   }
 
   .day {
-    color: var(--clr-text);
+    position: relative;
     aspect-ratio: 1;
     background: repeating-linear-gradient(
       -45deg,
@@ -132,16 +132,16 @@
       transparent 8%,
       transparent 16%
     );
-    position: relative;
+    color: var(--clr-text);
   }
 
   .day::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-color: black;
     opacity: 0;
     transition: opacity 200ms;
+    background-color: black;
   }
 
   .day:hover::after {
@@ -150,16 +150,16 @@
 
   .day span {
     position: absolute;
-    bottom: 0;
     right: 0;
+    bottom: 0;
     display: grid;
     place-items: center;
-    text-align: center;
-    background-color: var(--clr-bg);
-    border-radius: 50%;
-    aspect-ratio: 1;
-    width: 1.75em;
     margin: 0.25em;
+    border-radius: 50%;
+    width: 1.75em;
+    aspect-ratio: 1;
+    background-color: var(--clr-bg);
+    text-align: center;
     font-size: clamp(9px, 2.5vw, 15px);
   }
 

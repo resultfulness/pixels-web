@@ -112,16 +112,16 @@
 
   .scores {
     display: grid;
+    grid-template-columns: repeat(5, 4rem);
     justify-content: center;
     gap: 1rem;
-    grid-template-columns: repeat(5, 4rem);
   }
 
   .score {
     position: relative;
+    border-radius: 50%;
     width: 4rem;
     aspect-ratio: 1;
-    border-radius: 50%;
   }
   .score.checked {
     outline: 4px solid pink;
@@ -152,16 +152,16 @@
   }
 
   input#notes {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.1rem;
-    border: 0;
     margin-top: 0.75rem;
-    background-color: var(--clr-secondary-inactive-bg);
-    color: var(--clr-text-active);
+    border: 0;
     border-bottom: 2px solid var(--clr-secondary-inactive);
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+    background-color: var(--clr-secondary-inactive-bg);
+    color: var(--clr-text-active);
+    font-size: 1.1rem;
   }
 
   input#notes:focus {
@@ -170,43 +170,43 @@
   }
 
   button.fab {
-    background-color: var(--clr-primary);
-    color: var(--clr-text-active);
-    border: 0;
-    border-radius: 1.25rem;
-    aspect-ratio: 1;
-    padding: 1.25rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
     display: grid;
     place-items: center;
     cursor: pointer;
-    position: absolute;
-    bottom: 0;
-    right: 0;
     margin: 1.5rem;
+    border: 0;
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    aspect-ratio: 1;
+    background-color: var(--clr-primary);
+    color: var(--clr-text-active);
   }
 
   a,
   button:not(.fab) {
-    border-radius: 100vw;
-    border: 0;
-    background-color: var(--clr-secondary);
-    padding: 0.75rem 1.25rem;
-    padding-right: 1.5rem;
-    font-weight: 500;
-    font-size: 1.1rem;
-    color: var(--clr-text-active);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.75rem;
+    border-radius: 100vw;
+    border: 0;
+    padding: 0.75rem 1.25rem;
+    padding-right: 1.5rem;
+    background-color: var(--clr-secondary);
+    color: var(--clr-text-active);
+    font-size: 1.1rem;
+    font-weight: 500;
     text-decoration: none;
   }
 
   button:not(.fab) {
-    cursor: pointer;
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
     margin: 0.75rem;
+    cursor: pointer;
   }
 </style>

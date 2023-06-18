@@ -51,31 +51,30 @@
 <style>
   nav {
     position: fixed;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
     background-color: var(--clr-bar-bg);
   }
 
   ul {
     list-style: none;
-    max-width: 512px;
-    margin-inline: auto;
     display: grid;
-    padding: 0;
     grid-template-columns: repeat(4, 1fr);
+    margin-inline: auto;
+    padding: 0;
+    max-width: 512px;
   }
 
   a {
+    position: relative;
     display: grid;
+    place-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
     color: var(--clr-text-inactive);
     font-weight: 500;
     text-decoration: none;
-    place-items: center;
-    padding: 1rem 0;
-    gap: 0.5rem;
-
-    position: relative;
   }
 
   a.active {
@@ -87,10 +86,10 @@
     position: absolute;
     top: 0.7rem;
     left: 20%;
-    width: 60%;
-    border-radius: 100vw;
-    height: 2.4rem;
     z-index: -1;
+    border-radius: 100vw;
+    width: 60%;
+    height: 2.4rem;
     background-image: radial-gradient(
       circle at center,
       var(--clr-secondary) 1%,

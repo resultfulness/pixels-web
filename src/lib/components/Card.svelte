@@ -13,21 +13,21 @@
 <style>
   h2 {
     margin-bottom: 1rem;
-    font-weight: 500;
     font-size: 1.4rem;
+    font-weight: 500;
   }
 
   h2.bigger {
+    margin-bottom: 0;
     font-size: 1.8rem;
     font-weight: 400;
-    margin-bottom: 0;
   }
 
   section {
+    position: relative;
+    margin-inline: 0.1rem;
     border-radius: 1rem;
     padding: 1.25rem;
     background-color: var(--clr-card-bg);
-    margin-inline: 0.1rem;
-    position: relative;
   }
 </style>
