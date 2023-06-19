@@ -20,12 +20,12 @@
     right: 0;
     bottom: 6rem;
     left: 0;
-    z-index: 999999;
+    z-index: 99;
     margin-inline: auto;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     padding: 0.5rem;
-    max-width: 1049px;
+    width: min(100%, 1049px + 4rem);
     background-color: var(--clr-bar-bg-secondary);
   }
 
