@@ -1,4 +1,4 @@
-:root {
+j:root {
   color-scheme: light;
 
   --clr-text: #21191c;
@@ -41,7 +41,7 @@
   --clr-bg: #21191c;
   --clr-card-bg: #2a2124;
   --clr-bar-bg: #312529;
-  --clr-bar-bg-seconary: #3a2c31;
+  --clr-bar-bg-secondary: #3a2c31;
 
   --clr-primary: #79284f;
   --clr-secondary: #5a3f4a;
