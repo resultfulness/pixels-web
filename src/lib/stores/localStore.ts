@@ -1,5 +1,5 @@
-import { browser } from "$app/environment";
 import { get, writable } from "svelte/store";
+import { browser } from "$app/environment";
 
 const str = (val: any) => JSON.stringify(val, null, 2);
 const obj = JSON.parse;

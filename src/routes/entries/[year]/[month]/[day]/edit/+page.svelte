@@ -3,12 +3,12 @@
   import { page } from "$app/stores";
   import Card from "$lib/components/Card.svelte";
   import MdIcon from "$lib/components/MdIcon.svelte";
-  import { pixels, tagsCategories } from "$lib/stores";
   import { SCORE_SYMBOLS } from "$lib/types";
-  import TagBadge from "../TagBadge.svelte";
+  import { pixels, tagsCategories } from "$lib/stores";
   import DeleteModal from "./DeleteModal.svelte";
-  import type { PageData } from "./$types";
+  import TagBadge from "../TagBadge.svelte";
 
+  import type { PageData } from "./$types";
   export let data: PageData;
 
   let tags = data.entry?.tags || [];

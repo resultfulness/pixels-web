@@ -1,8 +1,8 @@
-import { get, writable } from "svelte/store";
+import { writable } from "svelte/store";
 
 const toaster = (visible: boolean, message: string) => {
   const store = writable({ visible, message });
-  const { subscribe, set, update } = store;
+  const { subscribe, set } = store;
 
   return {
     subscribe,

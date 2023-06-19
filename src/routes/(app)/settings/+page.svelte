@@ -1,12 +1,12 @@
 <script lang="ts">
+  import { get } from "svelte/store";
+  import FileSaver from "file-saver";
   import Card from "$lib/components/Card.svelte";
   import MdIcon from "$lib/components/MdIcon.svelte";
-  import { get } from "svelte/store";
   import { toast } from "$lib/stores/toaster";
   import FirstDayOfTheWeekSwitcher from "./FirstDayOfTheWeekSwitcher.svelte";
   import Reminder from "./Reminder.svelte";
   import ThemeSwitcher from "./ThemeSwitcher.svelte";
-  import FileSaver from "file-saver";
 
   let files: FileList;
 

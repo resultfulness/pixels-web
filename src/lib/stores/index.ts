@@ -1,7 +1,6 @@
-import type { PixelsEntry, Tags } from "$lib/types";
 import localStore from "./localStore";
-
 import * as defaults from "$lib/defaults";
+import type { PixelsEntry, Tags } from "$lib/types";
 
 const pixels = localStore<PixelsEntry[]>("pixels", []);
 

@@ -1,8 +1,8 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import MdIcon from "$lib/components/MdIcon.svelte";
   import { pixels, colors } from "$lib/stores";
   import type { PixelsEntry } from "$lib/types";
-  import { onMount } from "svelte";
 
   const MONTH_DAY_COUNTS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
@@ -107,7 +107,7 @@
             <a href={`/entries/${year}/${month + 1}/${day + 1}`} class="day">
               <span>{day + 1}</span>
               <span class="notes-icon">
-                <MdIcon icon="description" />
+                <MdIcon icon="description" color="white" />
               </span>
             </a>
           {/each}

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import MdIcon from "$lib/components/MdIcon.svelte";
   import { fade } from "svelte/transition";
+  import MdIcon from "$lib/components/MdIcon.svelte";
 
   export let showDeleteConfirmation = true;
   export let handleDelete: (

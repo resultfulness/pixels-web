@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { LayoutData } from "./$types";
-  import MdIcon from "$lib/components/MdIcon.svelte";
   import { page } from "$app/stores";
+  import MdIcon from "$lib/components/MdIcon.svelte";
 
+  import type { LayoutData } from "./$types";
   export let data: LayoutData;
 </script>
 

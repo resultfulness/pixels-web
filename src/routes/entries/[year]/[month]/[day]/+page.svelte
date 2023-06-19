@@ -1,9 +1,9 @@
 <script lang="ts">
   import MdIcon from "$lib/components/MdIcon.svelte";
-  import type { PageData } from "./$types";
-  import EntryView from "./EntryView.svelte";
   import constructUrlFromDate from "$lib/urlFromDate";
+  import EntryView from "./EntryView.svelte";
 
+  import type { PageData } from "./$types";
   export let data: PageData;
 
   $: entry = data.entry;
