@@ -148,12 +148,13 @@
     aspect-ratio: 1;
   }
   .score.checked {
-    outline: 4px solid pink;
+    outline: 4px solid var(--clr-secondary-active-bg);
   }
 
   label {
     position: absolute;
     inset: 0;
+    margin-top: 4px;
     cursor: pointer;
   }
 
