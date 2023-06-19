@@ -1,6 +1,6 @@
 <script lang="ts">
   import MdIcon from "$lib/components/MdIcon.svelte";
-  import { pixels } from "$lib/stores";
+  import { pixels, colors } from "$lib/stores";
   import type { PixelsEntry } from "$lib/types";
   import { onMount } from "svelte";
 
@@ -80,10 +80,12 @@
       const dateMonthDay = +date.split("-")[2];
       const dayOfEntry = monthdays[dateMonthDay - 1];
 
-      dayOfEntry.classList.add(`mood-level-${entry.scores[0]}`, `cup`);
       if (entry.notes.length !== 0) {
         dayOfEntry.classList.add("has-notes");
       }
+
+      dayOfEntry.style.background = "none";
+      dayOfEntry.style.backgroundColor = $colors[entry.scores[0] - 1];
     }
   });
 </script>
@@ -178,26 +180,5 @@
     top: 0;
     display: block;
     background-color: transparent;
-  }
-
-  .day.mood-level-1 {
-    background: none;
-    background-color: #7e57c2;
-  }
-  .day.mood-level-2 {
-    background: none;
-    background-color: #5c6bc0;
-  }
-  .day.mood-level-3 {
-    background: none;
-    background-color: #00bcd4;
-  }
-  .day.mood-level-4 {
-    background: none;
-    background-color: #9ccc65;
-  }
-  .day.mood-level-5 {
-    background: none;
-    background-color: #4caf50;
   }
 </style>
