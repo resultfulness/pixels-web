@@ -154,6 +154,7 @@
   label {
     position: absolute;
     inset: 0;
+    cursor: pointer;
   }
 
   label span {
