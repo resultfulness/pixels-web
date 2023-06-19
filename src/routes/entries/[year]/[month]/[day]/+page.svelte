@@ -2,16 +2,11 @@
   import MdIcon from "$lib/components/MdIcon.svelte";
   import type { PageData } from "./$types";
   import EntryView from "./EntryView.svelte";
+  import constructUrlFromDate from "$lib/urlFromDate";
 
   export let data: PageData;
 
   $: entry = data.entry;
-
-  function constructUrlFromDate(date: Date) {
-    return `/entries/${date.getFullYear()}/${
-      date.getMonth() + 1
-    }/${date.getDate()}`;
-  }
 </script>
 
 {#if entry}
