@@ -9,7 +9,7 @@
 
 <div>
   <div class="switch">
-    <Switch bind:checked topRight />
+    <Switch bind:checked absoluteAlignment="TOP-RIGHT" />
   </div>
 
   <div class="buttons">

@@ -1,9 +1,9 @@
 <script lang="ts">
   export let checked: boolean;
-  export let topRight: boolean = false;
+  export let absoluteAlignment: "TOP-RIGHT" | "NONE" = "NONE";
 </script>
 
-<label class="switch" class:top-right={topRight}>
+<label class="switch" class:top-right={absoluteAlignment === "TOP-RIGHT"}>
   <input type="checkbox" bind:checked />
   <span class="slider round" />
 </label>

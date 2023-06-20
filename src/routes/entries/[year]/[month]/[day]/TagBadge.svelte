@@ -2,9 +2,15 @@
   import MdIcon from "$lib/components/MdIcon.svelte";
 
   export let onRemove: (() => void) | null = null;
+  export let onEditHref: string | null = null;
 </script>
 
-<span class="badge">
+<span class="badge" class:fix-spacing={onEditHref !== null}>
+  {#if onEditHref !== null}
+    <a href={onEditHref}>
+      <MdIcon icon="edit" />
+    </a>
+  {/if}
   <slot />
   {#if onRemove !== null}
     <button on:click={onRemove} type="button">
@@ -23,8 +29,12 @@
     padding: 0.25rem 1.25rem;
     background-color: var(--clr-bg);
     color: var(--clr-text);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 500;
+  }
+
+  span.badge.fix-spacing {
+    padding-left: 1rem;
   }
 
   button {
@@ -36,5 +46,12 @@
     cursor: pointer;
     background-color: var(--clr-text-inactive);
     color: var(--clr-bg);
+  }
+
+  a {
+    display: grid;
+    place-items: center;
+    color: inherit;
+    text-decoration: none;
   }
 </style>
