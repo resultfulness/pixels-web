@@ -9,6 +9,7 @@
   import TagBadge from "../TagBadge.svelte";
 
   import type { PageData } from "./$types";
+  import Button from "$lib/components/Button.svelte";
   export let data: PageData;
 
   let tags = data.entry?.tags || [];
@@ -92,10 +93,10 @@
   </Card>
   {#each $tagsCategories as { type }}
     <Card title={type} biggerTitle>
-      <button type="button">
-        <MdIcon icon="add" size={30} />
+      <Button type="button" absoluteAlignment="TOP-RIGHT">
+        <MdIcon icon="add" size={30} variant="round" />
         Add tag
-      </button>
+      </Button>
       <div class="tag-entries">
         {#if tags?.some((t) => t.type === type)}
           {#each tags.find((t) => t.type === type).entries as tagEntry}
@@ -107,10 +108,10 @@
       </div>
     </Card>
   {/each}
-  <a href="/tags-categories">
-    <MdIcon icon="edit" />
+  <Button href="/tags-categories">
+    <MdIcon icon="edit" size={30} />
     Edit tags & categories
-  </a>
+  </Button>
   <Card title="Notes" biggerTitle>
     <input type="text" name="notes" id="notes" bind:value={notes} />
   </Card>
@@ -209,31 +210,6 @@
     cursor: pointer;
     background-color: var(--clr-primary);
     color: var(--clr-text-active);
-  }
-
-  a,
-  button[type="button"] {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
-    border-radius: 100vw;
-    border: 0;
-    padding: 0.75rem 1.25rem;
-    padding-right: 1.5rem;
-    background-color: var(--clr-secondary);
-    color: var(--clr-text-active);
-    font-size: 1.1rem;
-    font-weight: 500;
-    text-decoration: none;
-  }
-
-  button[type="button"] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0.75rem;
-    cursor: pointer;
   }
 
   button.delete {
